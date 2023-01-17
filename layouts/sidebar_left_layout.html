@@ -1,0 +1,60 @@
+<!-- Magic Shortcodes - proof of concept -->
+<!-- Enabled Debug in 'basic' mode to view all available types -->
+
+<!-- Page Content -->
+<div id="main-content" class="container ms-0 ps-0">
+
+  <!-- Page Heading/Breadcrumbs -->
+  {ALERTS}
+
+  <div class="row gx-5 flex-fill fill d-flex justify-content-start">
+    <div class="col-lg-3">
+	  <div id="leftside" class="leftside position-relative w-100 h-100">
+	    
+		<!-- Logo -->
+	    <div class="logo-top">
+	      {LOGO}
+	    </div>
+
+        <!-- Main Navigation -->
+        <div class="main-menu">
+	      <nav class ="navbar navbar-expand-lg">
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon d-flex justify-content-center align-items-center"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+		      {NAVIGATION=main}
+			</div>
+	      </nav>
+	    </div>
+		
+		<!-- Left side menus -->
+		<div id="left-menus">
+          {SETSTYLE=left-menus} 
+          {MENU=20}
+		  {MENU=21}
+        </div>
+	
+	    <!-- Social Main -->
+	    <div class="social-main">
+	      {XURL_ICONS}
+	    </div>
+	  </div>
+	</div>
+	
+    <!-- Blog Entries Column -->
+    <div class="col-lg-9">
+	  <div class="rightside pt-5">
+	    {SETSTYLE=main} 
+	    {---}
+		<footer id="footer" class="bg-dark py-4 mt-auto">
+		  {SETSTYLE=footer}
+          {---FOOTER---}
+		</footer>
+	  </div>
+	</div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+    
