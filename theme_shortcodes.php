@@ -12,14 +12,14 @@
 
 class theme_shortcodes extends e_shortcode
 {
-  
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------- */
 
-/*----------------------------- 
+/*-----------------------------
   LATEST NEWS SHORTCODE - Bootstrap 5 - fizi
------------------------------*/  
+-----------------------------*/
     function sc_grid_news_latest(){
-  
+
       $template = "
         <!-- News Grid Menu for Latest News -->
         {MENU: path=news/news_grid&limit=7&category=0&source=latest&featured=0&layout=homepage-latestnews}
@@ -28,14 +28,14 @@ class theme_shortcodes extends e_shortcode
 
     $text = e107::getParser()->parseTemplate($template,true);
 
-    return $text;  
-  
-    } 
- 
-    
-/*------------------------------------------ 
-    Shortcode for news on extend news pages 
---------------------------------------------*/       
+    return $text;
+
+    }
+
+
+/*------------------------------------------
+    Shortcode for news on extend news pages
+--------------------------------------------*/
     /**
      * Will only function on the news page.
      * @example {THEME_NEWS_BANNER: type=date}
@@ -67,15 +67,15 @@ class theme_shortcodes extends e_shortcode
             case "comment":
                 $ret = $sc->sc_news_comment_count();
                 break;
-            
+
             case "category":
-                $ret = $sc->sc_newscategory(); 
+                $ret = $sc->sc_newscategory();
                 break;
 
             case "author":
                 $ret = $sc->sc_news_author();
                 break;
-                
+
             case "related":
                 $ret = $sc->sc_news_related();
                 break;
@@ -101,37 +101,38 @@ class theme_shortcodes extends e_shortcode
 
 
     }
-    
-    
-/*------------------------------------------ 
-    Shortcode for custom contact 
---------------------------------------------*/  
-    
+
+
+/*------------------------------------------
+    Shortcode for custom contact
+--------------------------------------------*/
+
     function sc_contact_address()
 	{
-      $contact_shortcodes = e107::getScBatch('contact');                
-      return e107::getParser()->parseTemplate("<div class='contact-info-address'>{CONTACT_INFO: type=address}</div>", true, $contact_shortcodes);
+		$contact_shortcodes = e107::getScBatch('contact');
+		return "<div class='contact-info-address'>".$contact_shortcodes->sc_contact_info(['type'=>'address'])."</div>";
     }
     function sc_contact_phone1()
 	{
-      $contact_shortcodes = e107::getScBatch('contact');                
-      return e107::getParser()->parseTemplate("<div class='contact-info-phone'>{CONTACT_INFO: type=phone1}</div>", true, $contact_shortcodes);
+		$contact_shortcodes = e107::getScBatch('contact');
+		return "<div class='contact-info-phone'>".$contact_shortcodes->sc_contact_info(['type'=>'phone1'])."</div>";
     }
     function sc_contact_email1()
 	{
-      $contact_shortcodes = e107::getScBatch('contact');                
-      return e107::getParser()->parseTemplate("<div class='contact-info-email'>{CONTACT_INFO: type=email1}</div>", true, $contact_shortcodes);
+		$contact_shortcodes = e107::getScBatch('contact');
+		return "<div class='contact-info-email'>".$contact_shortcodes->sc_contact_info(['type'=>'email1'])."</div>";
+
     }
     function sc_contact_hours()
 	{
-      $contact_shortcodes = e107::getScBatch('contact');                
-      return e107::getParser()->parseTemplate("<div class='contact-info-hours'>{CONTACT_INFO: type=hours}</div>", true, $contact_shortcodes);
-    }    
-    
-    
-/*------------------------------------------ 
-    Shortcode for subscribe - Bootstrap 5 - fizi 
---------------------------------------------*/    
+        $contact_shortcodes = e107::getScBatch('contact');
+		return "<div class='contact-info-hours'>".$contact_shortcodes->sc_contact_info(['type'=>'hours'])."</div>";
+    }
+
+
+/*------------------------------------------
+    Shortcode for subscribe - Bootstrap 5 - fizi
+--------------------------------------------*/
     function sc_bootstrap_5_subscribe()
 	{
 		$pref = e107::pref('core');
@@ -141,18 +142,18 @@ class theme_shortcodes extends e_shortcode
 		{
 			return false;
 		}
-        
+
         $frm = e107::getForm();
 	    $text = $frm->open('bootstrap-5-subscribe','post', e_SIGNUP);
 	    $text .= "<div class='input-group mb-2'>";
 	    $text .= $frm->text('email','', null, array('placeholder'=> LAN_THEME_21));
-	    $text .= $frm->button('subscribe', 1, 'submit', LAN_THEME_22, array('class'=>'btn btn-outline-light'));   
+	    $text .= $frm->button('subscribe', 1, 'submit', LAN_THEME_22, array('class'=>'btn btn-outline-light'));
 	    $text .= "</div>";
 	    $text .= $frm->close();
 
 		return $text;
 	}
-    
+
     	/**
 	 * Special Footer Shortcode for dynamic menuarea templates.
 	 * @shortcode {---FOOTER---}
@@ -170,15 +171,15 @@ class theme_shortcodes extends e_shortcode
                 </div>
 		        <div class="col-lg-4 mb-4">
 		          <div class="contact-info-bottom">
-		            <h2 class="mb-4 text-center">{LAN=LAN_THEME_23}</h2>
-		            <div class="footer-address mt-3 pb-3"><span class="icon float-start mb-3 d-flex justify-content-center align-items-center">{GLYPH=fas fa-map-marker-alt}</span><span>{LAN=LAN_THEME_24}</span>{CONTACT_ADDRESS}</div>
-                    <div class="footer-phone mt-3 pb-3"><span class="icon float-start mb-3 d-flex justify-content-center align-items-center">{GLYPH=fas fa-mobile-alt}</span><span>{LAN=LAN_THEME_25}</span>{CONTACT_PHONE1}</div>
-                    <div class="footer-email mt-3 pb-3"><span class="icon float-start mb-3 d-flex justify-content-center align-items-center">{GLYPH=fas fa-at}</span><span>{LAN=LAN_THEME_26}</span>{CONTACT_EMAIL1}</div> 
+		            <h2 class="mb-4 text-center">{LAN=THEME_23}</h2>
+		            <div class="footer-address mt-3 pb-3"><span class="icon float-start mb-3 d-flex justify-content-center align-items-center">{GLYPH=fas fa-map-marker-alt}</span><span>{LAN=THEME_24}</span>{CONTACT_ADDRESS}</div>
+                    <div class="footer-phone mt-3 pb-3"><span class="icon float-start mb-3 d-flex justify-content-center align-items-center">{GLYPH=fas fa-mobile-alt}</span><span>{LAN=THEME_25}</span>{CONTACT_PHONE1}</div>
+                    <div class="footer-email mt-3 pb-3"><span class="icon float-start mb-3 d-flex justify-content-center align-items-center">{GLYPH=fas fa-at}</span><span>{LAN=THEME_26}</span>{CONTACT_EMAIL1}</div> 
                   </div>			
                 </div>
                 <div class="col-lg-4 mb-4">
 		          <div class="footer-links">
-		            <h2 class="mb-4 text-center">{LAN=LAN_THEME_27}</h2>
+		            <h2 class="mb-4 text-center">{LAN=THEME_27}</h2>
                     {NAVIGATION=footer}
 		          </div>
                 </div>
@@ -186,7 +187,7 @@ class theme_shortcodes extends e_shortcode
 	          <div class="small text-center text-white-50">{SITEDISCLAIMER}</div>
             </div>';
 	}
-  
-} 
- 
+
+}
+
 ?>
