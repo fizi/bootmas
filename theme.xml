@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Theme name="Bootstarp 5 Masonry" version="1.0" date="2023-01-02" compatibility="2.0" >
+<e107Theme name="Bootstrap 5 Masonry" version="1.0" date="2023-01-02" compatibility="2.0" >
 	<author name="fizi" url="http://fizithemes.hu" email="fizi@wsb.hu"/>
 	<summary>Bootstarp 5 with Masonry theme by fizi</summary>
 	<description>Bootstrap 5 theme</description>
@@ -13,6 +13,7 @@
     <word>bootstrap</word>
     <word>portfolio theme</word>
     <word>responsive</word>
+    <word>masonry</word>
   </keywords>
   <libraries>
     <library name="bootstrap" version="5" scope="front"/>
